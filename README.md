@@ -28,6 +28,12 @@ sudo docker run                       \
 sudo docker rm some-rabbit
 ```
 
+# Debug (Bash)
+
+```
+sudo docker exec -i -t some-rabbit /bin/bash
+```
+
 # TODO (By Priority):
 
  * [Link configuration file to a volume or something?](https://stackoverflow.com/a/42003732/1064917). See: [example conf](https://github.com/rabbitmq/rabbitmq-server/blob/stable/docs/rabbitmq.config.example). Stored in `/etc/rabbitmq/rabbitmq.config` right now.
