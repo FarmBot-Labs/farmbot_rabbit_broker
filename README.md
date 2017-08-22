@@ -1,24 +1,20 @@
-This is currently a shameless fork of https://github.com/docker-library/rabbitmq/tree/master/3.6/debian
+# Work In Progress
 
+Replacing the current MQTT broker with RabbitMQ.
 
-# running
-```bash
-export DOCKER_NAME localrabbit
-docker run -d --hostname $DOCKER_NAME --name $DOCKER_NAME rabbitmq:3
+# Running
+
+```
+sudo docker run        \
+  -p 15672:15672       \
+  --hostname my-rabbit \
+  --name some-rabbit   \
+  rabbitmq:3.6.11-management
 ```
 
-# stopping
-```bash
-docker stop $DOCKER_NAME
-```
+# TODO:
 
-
-# shell
-```bash
-docker exec -it $DOCKER_NAME
-```
-
-# logs
-```bash
-docker logs $DOCKER_NAME
-```
+ * [MQTT](https://www.rabbitmq.com/mqtt.html)
+ * [TLS/SSL](http://www.rabbitmq.com/ssl.html)
+ * [rabbitmq_auth_backend_http](https://www.rabbitmq.com/community-plugins.html#auth)
+   * Integrate an endpoint for this onto the [API](https://github.com/FarmBot/Farmbot-Web-App)
