@@ -44,6 +44,3 @@ sudo docker exec -i -t some-rabbit /bin/bash
  * [TLS/SSL](http://www.rabbitmq.com/ssl.html)
    * Integrate an endpoint for this onto the [API](https://github.com/FarmBot/Farmbot-Web-App)
 
-# Questions
-
- * Does this Docker image (`rabbitmq:3.6.11-management`) already link a volume for the config file?
