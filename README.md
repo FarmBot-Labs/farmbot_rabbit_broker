@@ -7,7 +7,15 @@ Replacing the current MQTT broker with RabbitMQ.
  * `Dockerfile`: The important thing.
  * `utils/`: A collection of Ruby scripts for debugging and testing.
 
-# Setup (Fish Shell)
+# Build
+
+```
+
+sudo docker build -t some-rabbit .
+
+```
+
+# Run (Fish Shell Users)
 
 ```
 
@@ -18,7 +26,7 @@ sudo docker run                       \
   --name some-rabbit                  \
   -v (pwd)/conf:/etc/rabbitmq         \
   -v (pwd)/rabbitmq:/var/lib/rabbitmq \
-  rabbitmq:3.6.11-management
+  some-rabbit
 
 ```
 
