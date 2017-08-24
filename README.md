@@ -7,7 +7,15 @@ Replacing the current MQTT broker with RabbitMQ.
  * `Dockerfile`: The important thing.
  * `utils/`: A collection of Ruby scripts for debugging and testing.
 
-# Setup (Fish Shell)
+# Build
+
+```
+
+sudo docker build -t some-rabbit .
+
+```
+
+# Run (Fish Shell Users)
 
 ```
 
@@ -18,7 +26,7 @@ sudo docker run                       \
   --name some-rabbit                  \
   -v (pwd)/conf:/etc/rabbitmq         \
   -v (pwd)/rabbitmq:/var/lib/rabbitmq \
-  rabbitmq:3.6.11-management
+  some-rabbit
 
 ```
 
@@ -44,6 +52,3 @@ sudo docker exec -i -t some-rabbit /bin/bash
  * [TLS/SSL](http://www.rabbitmq.com/ssl.html)
    * Integrate an endpoint for this onto the [API](https://github.com/FarmBot/Farmbot-Web-App)
 
-# Questions
-
- * Does this Docker image (`rabbitmq:3.6.11-management`) already link a volume for the config file?
