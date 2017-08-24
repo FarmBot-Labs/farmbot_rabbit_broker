@@ -51,4 +51,3 @@ sudo docker exec -i -t some-rabbit /bin/bash
  * [MQTT](https://www.rabbitmq.com/mqtt.html)
  * [TLS/SSL](http://www.rabbitmq.com/ssl.html)
    * Integrate an endpoint for this onto the [API](https://github.com/FarmBot/Farmbot-Web-App)
-
