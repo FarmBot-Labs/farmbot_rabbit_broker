@@ -14,6 +14,10 @@ defmodule Mix.Tasks.Ampq do
       GenServer.call(__MODULE__, {:publish, payload})
     end
 
+    {:auth_user,<<100,101,118,105,99,101,95,50>>,[],:none}
+    {:resource,<<47>>, :queue,<<109,113,116,116,45,115,117,98,115,99,114,105,112,116,105,111,110,45,109,113,116,116,106,115,95,53,56,56,99,97,101,54,53,113,111,115,49>>}
+    :configure
+
     def init([un, pw]) do
       payload = %{
         user: %{email: un, password: pw}
