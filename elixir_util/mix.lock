@@ -1,0 +1,4 @@
+%{"amqp": {:hex, :amqp, "0.2.3", "fa2495c0744e8fbf8acadb26d919ddad50630dd5019765dc1279911b3c650436", [], [{:amqp_client, "~> 3.6.8", [hex: :amqp_client, repo: "hexpm", optional: false]}, {:rabbit_common, "~> 3.6.8", [hex: :rabbit_common, repo: "hexpm", optional: false]}], "hexpm"},
+  "amqp_client": {:hex, :amqp_client, "3.6.11", "4d3d5d4d4d79f0d3b1ea98c7040446385a3c60c8125a233c675e772279088627", [], [{:rabbit_common, "3.6.11", [hex: :rabbit_common, repo: "hexpm", optional: false]}], "hexpm"},
+  "poison": {:hex, :poison, "3.0.0", "625ebd64d33ae2e65201c2c14d6c85c27cc8b68f2d0dd37828fde9c6920dd131", [], [], "hexpm"},
+  "rabbit_common": {:hex, :rabbit_common, "3.6.11", "b3b369d985a46e8689f961403b3157d35f83d259a746be32fb6feef7cad27f28", [], [], "hexpm"}}
