@@ -26,6 +26,7 @@ defmodule Mix.Tasks.Ampq do
       IO.puts "Connect."
       {:ok, connection} = AMQP.Connection.open(host: "localhost", username: un, password: tkn)
 
+      # {:ok, connection} = AMQP.Connection.open()
       IO.puts "Create a channel."
       {:ok, channel}    = AMQP.Channel.open(connection)
 

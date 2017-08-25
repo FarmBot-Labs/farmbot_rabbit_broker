@@ -22,6 +22,9 @@ sudo docker build -t some-rabbit .
 sudo docker run                       \
   -p 15672:15672                      \
   -p 5672:5672                        \
+  -p 3002:15675                       \
+  -p 8883:8883                        \
+  -p 1883:1883                        \
   --hostname some-rabbit              \
   --name some-rabbit                  \
   -v (pwd)/conf:/etc/rabbitmq         \
