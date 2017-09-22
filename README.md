@@ -21,6 +21,7 @@ sudo docker build -t some-rabbit .
 ```
 
 sudo docker run                       \
+  -e WEB_API_URL=localhost:3000       \
   -p 15672:15672                      \
   -p 5672:5672                        \
   -p 3002:15675                       \
