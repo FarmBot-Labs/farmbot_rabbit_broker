@@ -70,7 +70,7 @@ check_resource_access(AuthUser, Resource, Permission) ->
   true.
 
 check_topic_access(AuthUser, Resource, Permission, Context) ->
-  io:fwrite("topic access: ~w ~w ~w ~w\n\n", [AuthUser, Resource, Permission, Context]),
+  io:fwrite("topic access: ~s ~w ~w ~w\n\n", [AuthUser, Resource, Permission, Context]),
   true.
 
 %%--------------------------------------------------------------------
