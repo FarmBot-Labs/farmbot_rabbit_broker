@@ -6,11 +6,12 @@ Replacing the current MQTT broker with RabbitMQ.
 
  * `Dockerfile`: The important thing.
  * `utils/`: A collection of Ruby scripts for debugging and testing.
+ * `jwt_plugin`: The plugin for auth.
 
 # Build
 
 ```
-
+cd jwt_plugin; make; make dist; cd ..
 sudo docker build -t some-rabbit .
 
 ```
