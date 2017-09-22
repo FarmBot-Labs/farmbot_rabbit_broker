@@ -35,17 +35,15 @@ description() ->
 %%--------------------------------------------------------------------
 
 %% Decide if the user gave us a valid JWT.
-% user_login_authentication(Username, AuthProps) ->
-%   % Step 1: Validate that the JWT is is real.
-%   % io:fwrite("authn: ~s ~w\n\n", [Username, AuthProps]),
-%   {password, Jwt} = lists:keyfind(password, 1, AuthProps),
-%
-%   case rabbit_auth_backend_jwt_decoder:decode(Jwt) of
-%     {ok, _Bot} -> {ok, #auth_user{username = Username, tags = [], impl = none}};
-%     {error, reason} -> {refused, reason, []}
-%   end.
+user_login_authentication(Username, AuthProps) ->
+  % Step 1: Validate that the JWT is is real.
+  % io:fwrite("authn: ~s ~w\n\n", [Username, AuthProps]),
+  {password, Jwt} = lists:keyfind(password, 1, AuthProps),
 
-user_login_authentication(Username, _AuthProps) -> {ok, #auth_user{username = Username, tags = [], impl = none}}.
+  case rabbit_auth_backend_jwt_decoder:decode(Jwt) of
+    {ok, _Bot} -> {ok, #auth_user{username = Username, tags = [], impl = none}};
+    {error, Reason} -> {refused, Reason, []}
+  end.
 
 user_login_authorization(Username) ->
   % io:fwrite("authz: ~s\n\n", [Username]),
@@ -70,7 +68,7 @@ check_resource_access(AuthUser, Resource, Permission) ->
   true.
 
 check_topic_access(AuthUser, Resource, Permission, Context) ->
-  io:fwrite("topic access: ~s ~w ~w ~w\n\n", [AuthUser, Resource, Permission, Context]),
+  io:fwrite("topic access: ~w ~w ~w ~w\n\n", [AuthUser, Resource, Permission, Context]),
   true.
 
 %%--------------------------------------------------------------------
