@@ -60,11 +60,24 @@ check_vhost_access(_AuthUser, Vhost, _) ->
 
 check_resource_access(AuthUser, Resource, Permission) ->
   % {auth_user,<<100,101,118,105,99,101,95,50>>,[],none} {resource,<<47>>,exchange,<<97,109,113,46,116,111,112,105,99>>} write
-  {auth_user, User, _Something, Somethingelse} = AuthUser,
-  {resource, Path, exchange, Exchange} = Resource,
-  io:fwrite("resource access: user: ~s path: ~s exchange: ~s\n\n", [User, Path, Exchange]),
+  {auth_user, User, _Something, _Somethingelse} = AuthUser,
+  {resource, Vhost, Resource2, Arg} = Resource,
+  io:fwrite("resource access: user: ~s vhost: ~s resource: ~s arg: ~s\n\n", [User, Vhost, Resource2, Arg]),
+  case check_vhost_access(AuthUser, Vhost, Permission) of
+    true ->
+      case Resource2 of
+        topic -> check_topic(User, Arg);
+        _ -> true
+      end;
+    false -> false
+  end.
 
-  true.
+check_topic(User, Topic) ->
+  % Check if topic matches bot/#{topic}/
+  ExpectedThing = lists:flatten(io_lib:format('bot/~s/', [User])),
+  io:fwrite("Checking expected: ~s vs: topic: ~s\r\n", [ExpectedThing, Topic]),
+  lists:prefix(ExpectedThing, Topic).
+
 
 check_topic_access(AuthUser, Resource, Permission, Context) ->
   io:fwrite("topic access: ~w ~w ~w ~w\n\n", [AuthUser, Resource, Permission, Context]),
