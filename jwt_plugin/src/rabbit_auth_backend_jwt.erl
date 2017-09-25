@@ -58,13 +58,12 @@ check_vhost_access(_AuthUser, Vhost, _) ->
     _   -> false
   end.
 
-% check_resource_access(#auth_user{username = Username},
-%                       #resource{virtual_host = _VHost, kind = Type, name = Name},
-%                       Permission) ->
-%   io:fwrite("resource access: user: ~s, type: ", [Username])
-
 check_resource_access(AuthUser, Resource, Permission) ->
-  io:fwrite("resource access: ~w ~w ~w\n\n", [AuthUser, Resource, Permission]),
+  % {auth_user,<<100,101,118,105,99,101,95,50>>,[],none} {resource,<<47>>,exchange,<<97,109,113,46,116,111,112,105,99>>} write
+  {auth_user, User, _Something, Somethingelse} = AuthUser,
+  {resource, Path, exchange, Exchange} = Resource,
+  io:fwrite("resource access: user: ~s path: ~s exchange: ~s\n\n", [User, Path, Exchange]),
+
   true.
 
 check_topic_access(AuthUser, Resource, Permission, Context) ->
