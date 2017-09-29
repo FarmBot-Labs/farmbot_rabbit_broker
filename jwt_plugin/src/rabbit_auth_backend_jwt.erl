@@ -53,8 +53,11 @@ user_login_authorization(Username) ->
   end.
 
 check_vhost_access(_AuthUser, Vhost, _) ->
+  %  Is this a performance issue? Can it be cached? - RC
+  {ok, ExpectedVhost} = application:get_env(rabbit_auth_backend_jwt, farmbot_vhost),
+  io:fwrite("Ensure VHost is ~s \n\n", [Vhost]),
   case Vhost of
-    <<"/">> -> true;
+    ExpectedVhost -> true;
     _   -> false
   end.
 
