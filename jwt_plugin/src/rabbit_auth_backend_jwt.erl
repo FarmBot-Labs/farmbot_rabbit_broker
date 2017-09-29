@@ -62,7 +62,8 @@ check_vhost_access(_AuthUser, Vhost, _) ->
   end.
 
 check_resource_access(AuthUser, Resource, Permission) ->
-  % {auth_user,<<100,101,118,105,99,101,95,50>>,[],none} {resource,<<47>>,exchange,<<97,109,113,46,116,111,112,105,99>>} write
+  % {auth_user,<<100,101,118,105,99,101,95,50>>,[],none}
+  % {resource,<<47>>,exchange,<<97,109,113,46,116,111,112,105,99>>} write
   {auth_user, User, _Something, _Somethingelse} = AuthUser,
   {resource, Vhost, Resource2, Arg} = Resource,
   io:fwrite("resource access: user: ~s vhost: ~s resource: ~s arg: ~s\n\n", [User, Vhost, Resource2, Arg]),
