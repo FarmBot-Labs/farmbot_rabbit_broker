@@ -50,7 +50,7 @@ docker_rmi() {
 }
 
 docker_run() {
-  echo "Running Docker..."
+  cat the_badge.txt
   check_built
   check_exit
   sudo docker run                           \
@@ -67,7 +67,6 @@ docker_run() {
        some-rabbit
 }
 
-# if [ "$#" == "0" ]; then usage; fi
 docker_rm
 while getopts ":brnc" opt; do
   case $opt in
